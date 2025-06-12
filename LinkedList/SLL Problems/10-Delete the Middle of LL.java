@@ -9,7 +9,7 @@ class Solution {
             s=s.next;
             f=f.next.next;
         }
-        if(s.next!=null){
+        if(s.next!=null){  //if null ka -> next acess kiya -> we may get NPE -> so that's why we check first before acessing the next
             s.next=s.next.next;
         }
         return head;
