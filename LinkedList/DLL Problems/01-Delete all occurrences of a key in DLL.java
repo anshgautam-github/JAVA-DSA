@@ -1,4 +1,3 @@
-
 class Solution {
     public ListNode deleteAllOccurrences(ListNode head, int target) {
           ListNode temp = head;
