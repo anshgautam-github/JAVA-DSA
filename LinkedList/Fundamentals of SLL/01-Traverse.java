@@ -11,6 +11,5 @@ class Solution {
     }
 
     
-// Time Complexity: O(N) since we are visiting each node once. Here N represents the length of the linked list or the number of nodes present in the linked list.
-
-// Space Complexity: O(1) (Auxiliary Space). The algorithm only uses a constant amount of extra space for the traversal pointer. (
+// Time Complexity: O(N) since we are visiting each node once. Here N represents the length of the linked list 
+// Space Complexity: O(1) (Auxiliary Space). The algorithm only uses a constant amount of extra space for the traversal pointer
