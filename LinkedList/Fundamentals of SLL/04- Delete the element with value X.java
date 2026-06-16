@@ -5,7 +5,7 @@ class Solution {
         if (head.data==X) return head = head.next;
         ListNode temp = head;
 
-        while (temp.next!=null && temp.next.data!=X ){
+        while (temp.next!=null && temp.next.data!=X ){ // order matters otherwise you'll get an error.
             temp=temp.next;
         }
         if(temp.next!=null){
