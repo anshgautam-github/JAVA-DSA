@@ -7,3 +7,5 @@ class Solution {
     }
 }
 
+// Time Complexity: O(1) for updating the head of the linked list.
+// Space Complexity: O(1) as no extra space is used.
