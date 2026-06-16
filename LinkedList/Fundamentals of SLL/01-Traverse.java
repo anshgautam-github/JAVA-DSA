@@ -25,3 +25,47 @@ class Solution {
 
 // 02 - Traversing a singly linked list cannot be parallelized because each node depends on the next pointer of the previous node. 
 //      However, parallelization is possible for tasks performed on the data after traversal.
+
+
+
+    // Approach 01 :
+
+    public List<Integer> reverseTraversalStack(ListNode head) {
+    Stack<Integer> stack = new Stack<>();
+    ListNode temp = head;
+
+    // Push all elements into the stack
+    while (temp != null) {
+        stack.push(temp.data);
+        temp = temp.next;
+    }
+
+    List<Integer> ans = new ArrayList<>();
+
+    // Pop elements to get reverse order
+    while (!stack.isEmpty()) {
+        ans.add(stack.pop());
+    }
+
+    return ans;
+}
+
+
+
+    // Approach 02 :
+
+    public List<Integer> reverseTraversalReverseList(ListNode head) {
+    List<Integer> ans = new ArrayList<>();
+    ListNode temp = head;
+
+    // Store elements in normal order
+    while (temp != null) {
+        ans.add(temp.data);
+        temp = temp.next;
+    }
+
+    // Reverse the list
+    Collections.reverse(ans);
+
+    return ans;
+}
