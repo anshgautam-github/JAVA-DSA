@@ -21,10 +21,24 @@ class Solution {
     }
 
     return head;
-}
+ }
+
 
 // Time Complexity: O(N) worst case, when deleting the tail and O(1) best case, when deleting the head.
 // Space Complexity: O(1) no extra space used.
+
+   
+// Why do we write prev = temp;? Why not just keep prev fixed?
+      
+// Because prev is supposed to follow one step behind temp at all times.
+// Think of them as two people walking:
+// prev   temp
+//  ↓      ↓
+// 1  ->  2  ->  3  ->  4
+// When temp moves forward, prev must move too, otherwise it won't stay behind temp.
+
+
+   
 
 
    
