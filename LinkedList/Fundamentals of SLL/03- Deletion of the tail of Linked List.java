@@ -18,7 +18,7 @@ class Solution {
 
 // Interview Follow-ups
 
-// 01- How would you modify this to remove a node from the middle of the list?
+// 01- How would you modify this to remove a node from the middle of the list? (YET to update)
 // 02- How would you modify this to return the deleted node instead of just updating the list?
 
     
