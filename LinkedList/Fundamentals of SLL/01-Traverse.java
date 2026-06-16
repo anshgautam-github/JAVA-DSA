@@ -59,6 +59,8 @@ class Solution {
 
     // Approach 02 :
 
+    import java.util.Collections;
+
     public List<Integer> reverseTraversalReverseList(ListNode head) {
     List<Integer> ans = new ArrayList<>();
     ListNode temp = head;
