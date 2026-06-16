@@ -1,7 +1,29 @@
+class Solution {
+    public ListNode deleteNodeWithValueX(ListNode head, int X) {
+        //YOUR CODE GOES HERE
+        if(head==null) return null;
+        if (head.data==X) return head = head.next;
+        ListNode temp = head;
+
+        while (temp.next!=null && temp.next.data!=X ){
+            temp=temp.next;
+        }
+        if(temp.next!=null){
+            temp.next = temp.next.next;
+        }
+        
+        return head;
+
+    }
+}
 
 
+// Time Complexity: O(N) worst case, when the value is found at the tail, and O(1) best case, 
+//                   when the value is found at the head. Here N is the length of the linked list.
+// Space Complexity: O(1) as no extra space used.
 
 
+  
 // Interview Follow-ups
 
 // 01- What if you need to delete all occurrences of X? (NOT YET)
