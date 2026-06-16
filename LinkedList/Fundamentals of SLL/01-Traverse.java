@@ -50,6 +50,11 @@ class Solution {
     return ans;
 }
 
+    // Time Complexity
+        // Traversing the linked list: O(n)
+        // Popping all elements from stack: O(n)
+        // Total TC = O(n)
+    // Space Complexity : Stack stores all n elements: O(n)
 
 
     // Approach 02 :
@@ -69,3 +74,11 @@ class Solution {
 
     return ans;
 }
+    // Time Complexity
+    //     Traversing the linked list: O(n)
+    //     Reversing the list: O(n)
+    //     Total TC = O(n)
+    // Space Complexity
+    //     Output list stores n elements: O(n)
+    //     Auxiliary SC = O(1) (ignoring the output list, since no extra data structure is used)
+    
