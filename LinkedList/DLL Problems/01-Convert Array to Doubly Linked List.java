@@ -27,3 +27,21 @@ class Solution {
 // 02- How would you modify the function to create a circular DLL?
 
 // 01- Insert each element in sorted order using insertion sort logic (O(n²)) or build and sort (O(n log n)).
+    public ListNode arrayToSortedDoublyLinkedList(List<Integer> arr) {
+    if (arr == null || arr.size() == 0) return null;
+
+    Collections.sort(arr);
+
+    ListNode head = new ListNode(arr.get(0));
+    ListNode prev = head;
+
+    for (int i = 1; i < arr.size(); i++) {
+        ListNode temp = new ListNode(arr.get(i), prev, null);
+        prev.next = temp;
+        prev = temp;
+    }
+
+    return head;
+}
+    
+// Time Complexity : Sorting: O(n log n) + Creating DLL: O(n) -> Total: O(n log n)
