@@ -34,4 +34,14 @@
 
         return head;
     }
+
+
+
+
+// Interview Follow-ups
+
+// 01-How would this approach change if the list were a singly linked list?
+// 02-What if K was given as a negative index (e.g., -1 for inserting before the last node)?
+
+      
 }
