@@ -154,7 +154,22 @@ public class ValidParentheses {
 
 
 // Interview Tip
+
 // If an interviewer asks: "Why does using a HashMap not change the time complexity?"
+
 // A good answer is: "The algorithm still scans the string only once. The only change is replacing multiple if-else comparisons with a HashMap lookup. 
 // Since HashMap.get() and HashMap.containsKey() are O(1) on average, the overall time complexity remains O(n). 
 // The improvement is in code maintainability and scalability, not in asymptotic complexity."
+
+
+
+// Does the HashMap increase the Space Complexity?
+    
+// The HashMap stores only the bracket mappings, for example:
+// ')' → '('
+// '}' → '{'
+// ']' → '['
+// '>' → '<'
+// This is a fixed number of entries (or at least independent of the input size), so it uses constant space, i.e., O(1).
+// Therefore, the overall space complexity is still dominated by the stack:
+// O(n) + O(1) = O(n)
