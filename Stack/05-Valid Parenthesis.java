@@ -150,3 +150,11 @@ public class ValidParentheses {
 // | **Bracket Matching** | O(1)                             | O(1)                         | `if-else` comparisons are constant time. `HashMap.get()` is also O(1) on average.                                                |
 // | **Maintainability**  | Low                              | High                         | Every new bracket type requires adding another `else if` in Solution 1, whereas in Solution 2 you just add one entry to the map. |
 // | **Scalability**      | Poor                             | Excellent                    | The `HashMap` solution easily supports any number of bracket pairs.                                                              |
+
+
+
+// Interview Tip
+// If an interviewer asks: "Why does using a HashMap not change the time complexity?"
+// A good answer is: "The algorithm still scans the string only once. The only change is replacing multiple if-else comparisons with a HashMap lookup. 
+// Since HashMap.get() and HashMap.containsKey() are O(1) on average, the overall time complexity remains O(n). 
+// The improvement is in code maintainability and scalability, not in asymptotic complexity."
