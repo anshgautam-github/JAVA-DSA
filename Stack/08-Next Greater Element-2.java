@@ -12,14 +12,13 @@
        
         for(int i = 0; i < n; i++) {
             int currEle = arr[i];
-            for(int j = 1; j < n; j++) {
+            for(int j = i+1; j <= i+n-1; j++) {
                 // Getting the hypothetical index
-                int ind = (j + i) % n;
+                int ind = (j % n);
                 // If the next greater element is found
                 if(arr[ind] > currEle) {
                     // Store the next greater element
                     ans[i] = arr[ind];
-                    // Break from the loop
                     break;
                 }    
             }
