@@ -12,7 +12,7 @@
        
         for(int i = 0; i < n; i++) {
             int currEle = arr[i];
-            for(int j = i+1; j <= i+n-1; j++) {
+            for(int j = i+1; j < i+n; j++) {
                 // Getting the hypothetical index
                 int ind = (j % n);
                 // If the next greater element is found
