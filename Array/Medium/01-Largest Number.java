@@ -29,3 +29,44 @@ class Solution {
         return result.toString();
     }
 }
+
+// TIME COMPLEXITY : 
+    
+// Convert numbers to strings
+//         ↓
+// O(N × L)
+
+// Sort
+//         ↓
+// O(N log N × L)
+
+// Build result
+//         ↓
+// O(N × L)
+
+// Convert StringBuilder to String
+//         ↓
+// O(N × L)
+    
+// These happen one after another, so technically: O(N x L) + O(N log N) + O(N × L)
+// Since O(N log N) dominates O(N): O(N + N log N) = O(N log N) . So we do add the two phases.
+
+// Think about sorting: O(N log N) comparisons
+// But each comparison does: (b + a).compareTo(a + b) and comparing strings of length L can take: O(L)
+// So we have: Number of comparisons × work per comparison
+// O(N log N) × O(L) = O(N log N × L) 
+// That's multiplication because the O(L) work is being performed for every comparison.
+
+// Why don't we write O(N + N log N + N)?
+
+// We actually can when each operation is constant-time: O(N) + O(N log N) + O(N) = O(N log N)
+// Here, because string operations depend on the number of characters, we use L:
+// O(NL) + O(N log N L) + O(NL) = O(N log N L)
+
+
+
+
+// SPACE COMPLEXITY :
+// String[] arr We create: String[] arr = new String[nums.length]; There are N strings: N strings × up to L characters
+// So technically: O(N × L) space. If we treat the number of digits L as a constant, this becomes:
+// O(N).
