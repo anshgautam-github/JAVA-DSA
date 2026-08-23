@@ -78,3 +78,9 @@ class Solution {
 //            ↑  ↑  ↑
 //            1  2  3
 // Answer: [1, 2, 3] We got that without sorting!
+
+
+
+
+// The general takeaway : When a problem says: "What will the array look like after sorting?"
+// ask yourself: "Do I actually need to sort it?" Sometimes you can determine the final positions just by counting.
