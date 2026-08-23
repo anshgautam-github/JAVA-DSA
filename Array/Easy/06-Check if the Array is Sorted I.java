@@ -10,8 +10,17 @@ class Solution {
         if(arr[i]<arr[i+1]) isDesc = false;
        }
        return isAsc || isDesc;
+        // It means: Return true if isAsc OR isDesc is true.
     }
 }
+
+// Simply remember : A || B means: "Is A true OR B true?"
+// | A | B | A || B |
+// |---|---|---|
+// | true | true | true |
+// | true | false | true |
+// | false | true | true |
+// | false | false | false |
 
 // Time Complexity: O(N)
 // Perform a single traversal through the array, making a constant-time comparison for each element.
