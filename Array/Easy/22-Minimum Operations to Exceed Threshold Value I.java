@@ -1,0 +1,37 @@
+// You are given a 0-indexed integer array nums, and an integer k. In one operation, you can remove one occurrence of the smallest element of nums.
+// Return the minimum number of operations needed so that all elements of the array are greater than or equal to k.
+
+// Example 1:
+// Input: nums = [2,11,10,1,3], k = 10
+// Output: 3
+// Explanation: After one operation, nums becomes equal to [2, 11, 10, 3]. After two operations, nums becomes equal to [11, 10, 3].
+// After three operations, nums becomes equal to [11, 10].
+// At this stage, all the elements of nums are greater than or equal to 10 so we can stop.
+// It can be shown that 3 is the minimum number of operations needed so that all elements of the array are greater than or equal to 10.
+
+
+class Solution {
+    public int minOperations(int[] nums, int k) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < k) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+// TC -O(n)
+// SC -O(1)
+
+// nums = [2, 11, 10, 1, 3] k = 10 . We need every element ≥ 10. Anything below 10 has to eventually disappear:
+// 2 ❌ 11 ✅ 10 ✅ 1 ❌ 3 ❌  There are 3 elements below 10: 2, 1, 3
+// Therefore, we need exactly 3 operations. And notice that removing the smallest element naturally removes those bad elements first:
+// [2, 11, 10, 1, 3]
+
+// remove 1 → [2, 11, 10, 3]
+// remove 2 → [11, 10, 3]
+// remove 3 → [11, 10]
+  
+// So the answer is simply: Count how many elements are smaller than k
