@@ -7,8 +7,30 @@
 // rotate 1 step to the left: [2, 3, 4, 5, 6, 1]
 // rotate 2 steps to the left: [3, 4, 5, 6, 1, 2]
 
+//NAIVE :
+class Solution {
 
-//BRUTEFORCE : 
+    private void rotateByOne(int[] nums) {
+        int temp = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            nums[i - 1] = nums[i];
+        }
+        nums[nums.length - 1] = temp;
+    }
+
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n;
+        for (int i = 0; i < k; i++) {
+            rotateByOne(nums);
+        }
+    }
+}
+
+// TC : O(N*2)
+// SC : O(1)
+
+//Better  : 
 class Solution {
     public void rotateArray(int[] nums, int k) {
         int n = nums.length; // Size of array
