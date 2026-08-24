@@ -26,15 +26,13 @@ class Solution {
 
 
 // OPTIMAL : 
-// 1-Initialize 2 variables i as 0 and variable j as 1, where i will track the position of the last unique element found and j will iterate through the array to find new unique elements.
-// 2-Iterate in array using j from second element to the end of the array.
-// 3-If the element at position j is different from the element at position i, it means a new unique element is found. This is because the array is sorted in non-decreasing order, so any new element that is different from the previous one must be unique.
-// 4-When a new unique element is found, increment i to move to the next position for storing unique elements. Copy the element at position j to the new position at i. This ensures that the first i + 1 elements of the array are all unique.
+    
+// One pointer (j) explores/searches the array, while the other pointer (i) maintains/builds the valid portion of the array.
 
-
-// i → where my unique elements are
-// j → searching for the next unique element
-
+// For Remove Duplicates
+// i → last position of the valid/unique portion
+// j → scans to find the next different value
+    
 class Solution {
     public int removeDuplicates(int[] nums) {
         // Initialize pointer for unique elements
