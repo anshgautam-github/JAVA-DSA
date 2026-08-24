@@ -53,8 +53,16 @@ class Solution {
         // Return the number of unique elements
         return i + 1;
     }
-}
+// }
 
+
+// nums[i] = nums[j]; logic of this : j finds a new unique value
+// Eventually:
+// [1, 1, 2, 2, 3, 3]
+//  ↑     ↑
+//  i     j
+// We discover: nums[i] != nums[j] which means: 1 != 2
+// So we say: "Great! 2 is a new unique element." Now we do: i++;
 
 
 
