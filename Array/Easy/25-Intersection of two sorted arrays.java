@@ -47,6 +47,27 @@ class Solution {
 
 
 
+// else if (nums2[j] > nums1[i]) :
+// 
+// Suppose: nums1 = [2, 5, 6] , nums2 = [1, 2, 3, 4, 7, 8]. Both arrays are sorted. We're currently checking: nums1[i] = 5
+// We scan nums2:
+// nums2 = [1, 2, 3, 4, 7, 8]
+//                     ↑
+//                     j
+// At j:nums2[j] = 7
+// Now:nums2[j] > nums1[i], means: 7 > 5,True. So we do: break;
+
+// Why can we safely stop? Because nums2 is sorted:
+// 1, 2, 3, 4, 7, 8
+//             ↑
+// Everything after 7 is going to be: 8, 9, 10, ... All of them are greater than 5.  So there is absolutely no possibility of finding: 5 later.
+// Therefore: STOP SEARCHING That's what break is doing.
+
+
+    
+
+
+    
 // // OPTIMAL :
 // Declare two pointers, i for iterating through nums1 and j for iterating through nums2, and set both to 0. Initialize a vector or list to hold the intersection results.
 // Use a while loop to continue the iteration as long as both pointers are within the bounds of their respective arrays.
