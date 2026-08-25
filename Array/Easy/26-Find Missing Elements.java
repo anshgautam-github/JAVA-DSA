@@ -8,6 +8,7 @@
 // Output: [3]
 // Explanation: The smallest integer is 1 and the largest is 5, so the full range should be [1,2,3,4,5]. Among these, only 3 is missing.
 
+// Both the approaches works for both sorted and unsorted arrays. ✅
 
 // FREQ Array : 
 class Solution {
