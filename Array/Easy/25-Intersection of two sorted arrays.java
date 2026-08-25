@@ -103,3 +103,102 @@ public int[] intersectionArray(int[] nums1, int[] nums2) {
 // Time Complexity: O(M+N), where M and N are the lengths of the given arrays.This is because both the arrays are traversed once.
 // Space Complexity: O(min(m, n)), extra space to store answer is not considered.
 
+
+
+
+// UNSORTED Array :
+
+//     way 1 -> bruteforce code will work, remove the else if part.
+//     way 2 ->
+import java.util.*;
+class Solution {
+    public int[] intersectionArray(int[] nums1, int[] nums2) {
+
+        // This HashMap will store:
+        //
+        // number → how many times it is still available
+        //
+        // Example:
+        // nums1 = [1, 2, 2, 3, 3, 3]
+        //
+        // map will become:
+        // 1 → 1
+        // 2 → 2
+        // 3 → 3
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        // --------------------------------------------------
+        // STEP 1: Count the frequency of every element in nums1
+        // --------------------------------------------------
+
+        for (int i = 0; i < nums1.length; i++) {
+            int num = nums1[i];
+            // If the number is already in the map,
+            // increase its frequency by 1.
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            } 
+            // If this is the first time we see the number,
+            // put it in the map with frequency 1.
+            else {
+                map.put(num, 1);
+            }
+        }
+
+        // This list will store our intersection result.
+        List<Integer> result = new ArrayList<>();
+
+        // --------------------------------------------------
+        // STEP 2: Go through nums2 and look for matches
+        // --------------------------------------------------
+
+        for (int i = 0; i < nums2.length; i++) {
+            int num = nums2[i];
+            // We can use this number only if:
+            //
+            // 1. It exists in nums1
+            // 2. There is still at least one unused occurrence
+            //
+            // Example:
+            // map.get(2) = 2
+            //
+            // This means we still have two 2's from nums1
+            // available to match.
+            if (map.containsKey(num) && map.get(num) > 0) {
+                // We found a valid intersection element,
+                // so add it to the result.
+                result.add(num);
+                // We have now used ONE occurrence of this number.
+                //
+                // Example:
+                // Before:
+                // 2 → 2
+                //
+                // After using one 2:
+                // 2 → 1
+                map.put(num, map.get(num) - 1);
+            }
+        }
+        // --------------------------------------------------
+        // STEP 3: Convert ArrayList<Integer> to int[]
+        // --------------------------------------------------
+
+        int[] ans = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            ans[i] = result.get(i);
+        }
+        return ans;
+    }
+}
+
+
+// Time Complexity: O(M + N) average
+// We have three main loops: for (int i = 0; i < nums1.length; i++) → O(M) — build the frequency map.
+// for (int i = 0; i < nums2.length; i++) → O(N) — find matching elements.
+// for (int i = 0; i < result.size(); i++)→ O(min(M, N)) to convert the result.
+// So: O(M) + O(N) + O(min(M,N)) which simplifies to: TC = O(M + N) average.
+
+// Auxiliary Space: O(M)
+// The main extra data structure is: HashMap<Integer, Integer> map
+// In the worst case, every element in nums1 is different: nums1 = [1, 2, 3, 4, 5, ...] 
+// So the map can contain M entries. Therefore: Auxiliary Space = O(M)
