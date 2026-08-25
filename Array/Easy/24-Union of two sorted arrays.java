@@ -86,3 +86,12 @@ class Solution {
 
 // Time Complexity: O(M+N), because both the arrays must be traversed once.
 // Space Complexity: O(M+N), considering the space for returning the output, which in the worst case, can contain all the elements from both arrays.
+
+
+
+
+
+// How would you handle unsorted input arrays?
+// If the input arrays are unsorted: Sort each array first O(mlogm) and O(nlogn)). Apply the two-pointer approach or merge logic.
+// This approach would have an overall time complexity of O(mlogm+nlogn+m+n). Arrays.sort(num1), Arrays.sort(num2)
+// or elsee the first code works well
