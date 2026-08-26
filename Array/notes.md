@@ -75,3 +75,41 @@ Suffix → stored temporarily in one variable
 giving:
 Time = O(N)
 Auxiliary Space = O(1)
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// Don't think: "Always write the if condition for what I am supposed to do."
+// Instead think: "First identify which elements should participate in my operation, and make the condition select exactly those elements."
+// In your problem: "Multiply every element except the current element."
+
+// int prod = 1
+
+// Ask: "Am I building something?"
+// In your code:
+// for (int j = 0; j < n; j++) {
+//     if (i != j) {
+//         prod *= nums[j];
+//     }
+// }
+// We're doing: multiply multiply multiply multiply ... We need to remember the result of all those multiplications.
+// Therefore, we need a variable: int prod = 1; This variable is called an accumulator. It accumulates the result as we go.
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int [] ans = new int [n];
+        for(int i =0; i<n ; i++){
+            int prod =1;
+            for(int j=0; j<n; j++){
+                if(i!=j){ // if condition
+                    prod*=nums[j];
+                }
+            }
+            ans[i] = prod;
+        }
+        return ans;
+    }
+}
