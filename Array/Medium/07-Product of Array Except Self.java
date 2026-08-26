@@ -78,3 +78,46 @@ class Solution {
 
 // Time Complexity :We have three loops, but they are sequential, not nested: O(N) + O(N) + O(N) which is: TC = O(N)
 // Space :  prefix → O(N) , suffix → O(N) , ans    → O(N) So: SC = O(N)
+
+
+
+
+// Optimized :
+// Now ask: Do I really need the prefix and suffix arrays? No.
+// Look at what happens in the first approach: prefix = [1, 1, 2, 6] We eventually multiply every prefix value by its corresponding suffix value.
+// So instead of: prefix[i] , we can put the prefix product directly into ans[i]. That's our first optimization.
+
+// Step 1: Use ans as the prefix array
+// After this: ans = [1, 1, 2, 6] . Exactly what our prefix array contained before. So we have eliminated: int[] prefix.
+
+// Step 2: What about the suffix array? We still need the suffix products. But do we need to store them? No! We can maintain just one variable:
+// int rightProduct = 1; .and traverse from right to left.
+
+class Solution {
+
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[n];
+      
+        // STEP 1: Store prefix products  directly inside ans
+        int leftProduct = 1;
+        for (int i = 0; i < n; i++) {
+            // Product of everything to the left
+            ans[i] = leftProduct;
+            // Update product for next index
+            leftProduct *= nums[i];
+        }
+      
+        // STEP 2: Calculate suffix productson the fly
+        int rightProduct = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            // ans[i] already contains the left product. Multiply it by the right product.
+            ans[i] *= rightProduct;
+            // Update right product for next index
+            rightProduct *= nums[i];
+        }
+        return ans;
+    }
+}
+// TC : O(n)
+// SC:O(1)
