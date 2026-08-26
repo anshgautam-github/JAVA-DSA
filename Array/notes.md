@@ -40,3 +40,38 @@ Reuse answer array
 O(N) time, O(1) auxiliary space
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The general lesson is not:
+"Whenever something excludes the current element, use prefix/suffix."
+Rather, think:
+When the answer for each index depends on the elements around it, and repeatedly calculating those elements would be expensive, look for prefix/suffix information.
+
+"If I need information from both sides of every index, think prefix/suffix. Then ask whether I can calculate those values on the fly instead of storing entire arrays."
+
+
+The straightforward prefix/suffix approach is:
+prefix array
+suffix array
+     ↓
+multiply them
+     ↓
+answer
+That takes:
+O(N) extra space
+Then we realized:
+We don't actually need to store both arrays.
+We can:
+First pass:
+    calculate prefix products
+    store them directly in answer[]
+
+Second pass:
+    calculate suffix product on the fly
+    multiply it into answer[]
+So:
+Prefix → stored in answer[]
+Suffix → stored temporarily in one variable
+giving:
+Time = O(N)
+Auxiliary Space = O(1)
