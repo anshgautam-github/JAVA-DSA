@@ -2,6 +2,7 @@
 // The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
 
 
+
 // BruteForce:
 class Solution {
     public int majorityElement(int[] nums) {
@@ -47,9 +48,25 @@ class Solution {
 // Small + known value range => Frequency Array
 // Large / negative / unknown range => HashMap
 
-  
 
+    
+    
+    
+    
+    
 // Optimal : 
+
+// Moore's Voting Algorithm
+    
+// > n/2 → only ONE element is possible
+// Suppose: n = 10 For an element to be a majority element, it must appear: > 10/2 > 5
+// So it needs at least 6 occurrences. Could we have two such elements?
+// Suppose: A = 6 occurrences B = 6 occurrences
+// Together: 6 + 6 = 12 .But our array only has 10 elements!
+// Impossible. Therefore: There can be at most ONE element appearing more than n/2 times.
+// That's why your original code only needs: int ele;int cnt; One candidate.
+
+
 
 // Approach  : Moore's Voting Algorithm
 // 1- Initialize 2 variables: countfor tracking the count of elements and element for keeping a track of the element we are counting.
