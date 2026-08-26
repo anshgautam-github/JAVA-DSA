@@ -150,3 +150,71 @@ class Solution {
 // Question 3: Do I need to search for a position? No!
 // The sign itself tells us exactly where the element goes: positive → next even position , negative → next odd position
 // That eliminates searching. And once you eliminate searching, you get: ONE PASS → O(n).
+
+
+
+
+
+
+// Interview Followup :
+// How would you modify the algorithm to handle uneven counts of positives and negatives?
+
+// Step 1: Separate the two types
+// If counts can be uneven, don't assume that every positive has a negative partner.
+// Think: positives → [1, 2, 3] , negatives → [-1, -2]
+
+// Step 2: Pair as long as BOTH exist
+// We can create: 1, -1 => 2, -2 After that: positive → 3 negative → nothing So we stop alternating.
+
+// Step 3: Append leftovers : The remaining positives/negatives can simply be placed after the alternating portion.
+// That's the modification.
+
+import java.util.*;
+
+class Solution {
+
+    public int[] rearrangeArray(int[] nums) {
+
+        List<Integer> positives = new ArrayList<>();
+        List<Integer> negatives = new ArrayList<>();
+
+        // Separate positives and negatives
+        for (int i = 0; i < nums.length; i++) {
+
+            if (nums[i] > 0) {
+                positives.add(nums[i]);
+            } else {
+                negatives.add(nums[i]);
+            }
+        }
+
+        int[] ans = new int[nums.length];
+
+        int p = 0;
+        int n = 0;
+        int index = 0;
+
+        // Alternate while BOTH types are available
+        while (p < positives.size() && n < negatives.size()) {
+
+            ans[index++] = positives.get(p++);
+            ans[index++] = negatives.get(n++);
+        }
+
+        // If positives are remaining
+        while (p < positives.size()) {
+
+            ans[index++] = positives.get(p++);
+        }
+
+        // If negatives are remaining
+        while (n < negatives.size()) {
+
+            ans[index++] = negatives.get(n++);
+        }
+
+        return ans;
+    }
+}
+// TC = O(N)
+// SC = O(N)
