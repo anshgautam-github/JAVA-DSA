@@ -30,6 +30,11 @@ class Solution {
 
 // Better : 
 
+// The general lesson is not:
+// "Whenever something excludes the current element, use prefix/suffix."
+// Rather, think:
+// When the answer for each index depends on the elements around it, and repeatedly calculating those elements would be expensive, look for prefix/suffix information.
+
 // Approach 1: Prefix Array + Suffix Array
 // First, understand the idea:
 // answer[i] = product of everything LEFT of i × product of everything RIGHT of i
