@@ -1,6 +1,9 @@
 class Solution {
     public boolean isSorted(ArrayList<Integer> nums) {
         //your code goes here
+        if (nums.size() <= 1) {
+            return true;
+        }
         int n = nums.size();
         int i =0;
         return check(n , i , nums);
