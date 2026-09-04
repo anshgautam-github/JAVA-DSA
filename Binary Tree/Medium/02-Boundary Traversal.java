@@ -1,3 +1,9 @@
+// left traversal without leaf
+// add leaf nodes
+// right traversal without leaf in reverse order
+
+
+
 
 class Solution {
     // Function to check if a node is a leaf
